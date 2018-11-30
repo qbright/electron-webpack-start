@@ -1,22 +1,23 @@
 {
-  "name": "system-monitor-electron",
+  "name": "electron-webpack-start",
   "version": "1.0.0",
-  "description": "",
+  "description": "quick start a electron project with webpack",
   "main": "main.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production node ./.build/build.js && electron-builder --project ./dist/ ",
-    "dev": "cross-env NODE_ENV=development node ./.build/dev-watch.js"
+    "build": "cross-env NODE_ENV=production node ./.build/build.js",
+    "dev": "cross-env NODE_ENV=development node ./.build/dev-watch.js",
+    "pack": "npm run build &&  electron-builder --project ./dist/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qbright/system-monitor-electron.git"
+    "url": "git+https://github.com/qbright/electron-webpack-start.git"
   },
-  "author": "",
+  "author": "zqbright",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/qbright/system-monitor-electron/issues"
+    "url": "https://github.com/qbright/electron-webpack-start/issues"
   },
-  "homepage": "https://github.com/qbright/system-monitor-electron#readme",
+  "homepage": "https://github.com/qbright/electron-webpack-start#readme",
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
