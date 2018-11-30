@@ -3,7 +3,7 @@ const chalk = require("chalk");
 const del = require("del");
 const path = require("path");
 const kill = require("./kill");
-
+const printWebpackOutput = require("./printWebpackOutput");
 const MAIN_CONFIG = require("./webpack.main.config");
 const RENDERER_CONFIG = require("./webpack.renderer.config");
 const electronReloadStart = require("./electron.handler");
@@ -51,19 +51,4 @@ function restartElectronMainProcess() {
   setTimeout(() => {
     electronChildProcess = electronReloadStart();
   }, 100);
-}
-
-function printWebpackOutput(stats, startText, endText, chalkFn) {
-  console.log("\n\n\n");
-  console.log(chalkFn(startText));
-  console.log(
-    stats.toString({
-      colors: true,
-      modules: false,
-      children: false,
-      chunks: false,
-      chunkmodules: false
-    })
-  );
-  console.log(chalkFn(endText));
 }
