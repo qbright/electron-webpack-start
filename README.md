@@ -15,6 +15,15 @@ rm -rf .git
 
 # install dependencies
 npm i
+
+# start development
+npm run dev
+
+# build the app
+npm run build
+
+# pack to the application
+npm run pack
 ```
 
 
