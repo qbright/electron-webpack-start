@@ -1,5 +1,6 @@
 # electron-webpack-start
 
+*   with react  [electron-webpack-react-start](https://github.com/qbright/electron-webpack-start/tree/electron-webpack-react-start)
 
 ## Quick Start
 Get started fast with [electron-webpack-start](https://github.com/qbright/electron-webpack-start).
