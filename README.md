@@ -1,4 +1,4 @@
-# electron-webpack-start
+# electron-webpack-start  (with react)
 
 
 ## Quick Start
