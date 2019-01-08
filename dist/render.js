@@ -23628,7 +23628,13 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hello , World"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "It is ", this.state.date.toLocaleTimeString()));
+      function DateFormatter(props) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "It is ", props.date.toLocaleTimeString());
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hello , World"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DateFormatter, {
+        date: this.state.date
+      }));
     }
   }]);
 

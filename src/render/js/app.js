@@ -20,10 +20,14 @@ class Clock extends React.Component {
     });
   }
   render() {
+    function DateFormatter(props) {
+      return <h1>It is {props.date.toLocaleTimeString()}</h1>;
+    }
+
     return (
       <div>
         <h1>Hello , World</h1>
-        <h1>It is {this.state.date.toLocaleTimeString()}</h1>
+        <DateFormatter date={this.state.date} />
       </div>
     );
   }
