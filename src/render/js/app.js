@@ -5,20 +5,15 @@ class Clock extends React.Component {
   constructor(props) {
     super(props);
     this.state = { date: new Date() };
-  }
-  componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 1000);
-  }
 
-  componentWillUnmount() {
-    clearInterval(this.timerID);
   }
+  componentDidMount() {}
 
-  tick() {
-    this.setState({
-      date: new Date()
-    });
-  }
+  componentWillUnmount() {}
+  handlerClick = () => {
+    console.log("handlerClick", this);
+  };
+
   render() {
     function DateFormatter(props) {
       return <h1>It is {props.date.toLocaleTimeString()}</h1>;
@@ -28,6 +23,7 @@ class Clock extends React.Component {
       <div>
         <h1>Hello , World Qbright</h1>
         <DateFormatter date={this.state.date} />
+        <div onClick={this.handlerClick}>click!!</div>
       </div>
     );
   }
