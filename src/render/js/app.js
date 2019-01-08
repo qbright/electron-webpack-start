@@ -26,7 +26,7 @@ class Clock extends React.Component {
 
     return (
       <div>
-        <h1>Hello , World</h1>
+        <h1>Hello , World Qbright</h1>
         <DateFormatter date={this.state.date} />
       </div>
     );

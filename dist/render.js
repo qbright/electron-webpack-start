@@ -23632,7 +23632,7 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "It is ", props.date.toLocaleTimeString());
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hello , World"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DateFormatter, {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hello , World Qbright"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DateFormatter, {
         date: this.state.date
       }));
     }
