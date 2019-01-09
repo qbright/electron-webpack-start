@@ -23589,29 +23589,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var Clock =
+var List =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(Clock, _React$Component);
+  _inherits(List, _React$Component);
 
-  function Clock(props) {
+  function List(props) {
     var _this;
 
-    _classCallCheck(this, Clock);
+    _classCallCheck(this, List);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Clock).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(List).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handlerClick", function () {
-      console.log("handlerClick", _assertThisInitialized(_assertThisInitialized(_this)));
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handlerClick", function (index) {
+      console.log("index", index);
     });
 
     _this.state = {
-      date: new Date()
+      list: [1, 2, 3, 4, 5, 6, 7]
     };
     return _this;
   }
 
-  _createClass(Clock, [{
+  _createClass(List, [{
     key: "componentDidMount",
     value: function componentDidMount() {}
   }, {
@@ -23620,22 +23620,30 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      function DateFormatter(props) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "It is ", props.date.toLocaleTimeString());
-      }
+      var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hello , World Qbright"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DateFormatter, {
-        date: this.state.date
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        onClick: this.handlerClick
-      }, "click!!"));
+      var ListEl = function ListEl(props) {
+        var i = 0;
+        return props.list.map(function (item) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            key: item.toString(),
+            onClick: function onClick() {
+              _this2.handlerClick(i++);
+            }
+          }, "It is ", item);
+        });
+      };
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ListEl, {
+        list: this.state.list
+      }));
     }
   }]);
 
-  return Clock;
+  return List;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Clock, null), document.getElementById("app"));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(List, null), document.getElementById("app"));
 
 /***/ })
 

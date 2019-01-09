@@ -1,32 +1,41 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-class Clock extends React.Component {
+class List extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { date: new Date() };
-
+    this.state = { list: [1, 2, 3, 4, 5, 6, 7] };
   }
   componentDidMount() {}
 
   componentWillUnmount() {}
-  handlerClick = () => {
-    console.log("handlerClick", this);
+  handlerClick = index => {
+    console.log("index", index);
   };
 
   render() {
-    function DateFormatter(props) {
-      return <h1>It is {props.date.toLocaleTimeString()}</h1>;
-    }
+    let ListEl = props => {
+      let i = 0;
+      return props.list.map(item => {
+        return (
+          <li
+            key={item.toString()}
+            onClick={() => {
+              this.handlerClick(i++);
+            }}
+          >
+            It is {item}
+          </li>
+        );
+      });
+    };
 
     return (
-      <div>
-        <h1>Hello , World Qbright</h1>
-        <DateFormatter date={this.state.date} />
-        <div onClick={this.handlerClick}>click!!</div>
-      </div>
+      <ul>
+        <ListEl list={this.state.list} />
+      </ul>
     );
   }
 }
 
-ReactDOM.render(<Clock />, document.getElementById("app"));
+ReactDOM.render(<List />, document.getElementById("app"));
