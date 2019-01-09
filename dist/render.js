@@ -23589,61 +23589,55 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var List =
+var NameForm =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(List, _React$Component);
+  _inherits(NameForm, _React$Component);
 
-  function List(props) {
+  function NameForm(props) {
     var _this;
 
-    _classCallCheck(this, List);
+    _classCallCheck(this, NameForm);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(List).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(NameForm).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handlerClick", function (index) {
-      console.log("index", index);
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (e) {
+      _this.setState({
+        value: e.target.value
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handlerSubmit", function (e) {
+      alert("A name was submitted: " + _this.state.value);
+      e.preventDefault();
     });
 
     _this.state = {
-      list: [1, 2, 3, 4, 5, 6, 7]
+      value: ""
     };
     return _this;
   }
 
-  _createClass(List, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {}
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {}
-  }, {
+  _createClass(NameForm, [{
     key: "render",
     value: function render() {
-      var _this2 = this;
-
-      var ListEl = function ListEl(props) {
-        var i = 0;
-        return props.list.map(function (item) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-            key: item.toString(),
-            onClick: function onClick() {
-              _this2.handlerClick(i++);
-            }
-          }, "It is ", item);
-        });
-      };
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ListEl, {
-        list: this.state.list
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handlerSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        value: this.state.value,
+        onChange: this.handleChange
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "submit",
+        value: "Submit"
       }));
     }
   }]);
 
-  return List;
+  return NameForm;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(List, null), document.getElementById("app"));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(NameForm, null), document.getElementById("app"));
 
 /***/ })
 
