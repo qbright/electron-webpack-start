@@ -1,36 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-class NameForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: "" };
-  }
+const Suspense = React.Suspense;
+const Other = React.lazy(
+  () =>
+    new Promise(resolve => {
+      setTimeout(() => {
+        resolve(import("./other"));
+      }, 2000);
+    })
+);
 
-  handleChange = e => {
-    this.setState({ value: e.target.value });
-  };
-
-  handlerSubmit = e => {
-    alert("A name was submitted: " + this.state.value);
-    e.preventDefault();
-  };
-
+class ComponentA extends React.Component {
   render() {
     return (
-      <form onSubmit={this.handlerSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <div>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Other />
+        </Suspense>
+      </div>
     );
   }
 }
 
-ReactDOM.render(<NameForm />, document.getElementById("app"));
+ReactDOM.render(<ComponentA />, document.getElementById("app"));
