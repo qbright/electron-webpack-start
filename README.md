@@ -22,7 +22,7 @@ npm run dev
 # build the app
 npm run build
 
-# pack to the application
+w# pack to the application
 npm run pack
 ```
 

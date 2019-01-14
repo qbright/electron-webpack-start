@@ -1,26 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const Suspense = React.Suspense;
-const Other = React.lazy(
-  () =>
-    new Promise(resolve => {
-      setTimeout(() => {
-        resolve(import("./other"));
-      }, 2000);
-    })
-);
+import { ThemeContext, themes } from "./theme-context";
+import ThemeButton from "./themed-button";
 
-class ComponentA extends React.Component {
-  render() {
-    return (
-      <div>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Other />
-        </Suspense>
-      </div>
-    );
+function Toolbar(props) {
+  return <ThemeButton onClick={props.changeTheme}>Change Theme</ThemeButton>;
+}
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      theme: themes.light
+    };
+    this.toggleTheme = () => {
+      this.setState(state => ({
+        theme: state.theme === themes.dark ? themes.light : themes.dark
+      }));
+    };
   }
 }
 
-ReactDOM.render(<ComponentA />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById("app"));
