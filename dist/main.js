@@ -122,36 +122,61 @@ const path = __webpack_require__(/*! path */ "path");
 const { WIDEVINECDM_VERSION } = __webpack_require__(/*! ./constants */ "./node_modules/electron-widevinecdm/lib/constants.js");
 
 const load = app => {
-  if (process.platform === 'win32') return;
+  if (process.platform === "win32") return;
 
   let widevineCdmPluginFilename;
   switch (process.platform) {
-    case 'darwin':
-      widevineCdmPluginFilename = path.join('_platform_specific', 'mac_x64', 'widevinecdmadapter.plugin');
+    case "darwin":
+      widevineCdmPluginFilename = path.join(
+        "_platform_specific",
+        "mac_x64",
+        "widevinecdmadapter.plugin"
+      );
       break;
-    case 'linux':
-      widevineCdmPluginFilename = 'libwidevinecdmadapter.so';
+    case "linux":
+      widevineCdmPluginFilename = "libwidevinecdmadapter.so";
       break;
     default:
-    case 'win32':
-      widevineCdmPluginFilename = path.join('_platform_specific', `win_${process.arch === 'ia32' ? 'x86' : process.arch}`, 'widevinecdmadapter.dll');
+    case "win32":
+      widevineCdmPluginFilename = path.join(
+        "_platform_specific",
+        `win_${process.arch === "ia32" ? "x86" : process.arch}`,
+        "widevinecdmadapter.dll"
+      );
   }
 
-  const asarUnpackedPath = path.join(process.resourcesPath, 'app.asar.unpacked', 'node_modules', 'electron-widevinecdm', 'widevine', `${process.platform}_${process.arch}`, widevineCdmPluginFilename);
-  const normalPath = path.join(__dirname, '..', 'widevine', `${process.platform}_${process.arch}`, widevineCdmPluginFilename);
-
+  const asarUnpackedPath = path.join(
+    process.resourcesPath,
+    "app.asar.unpacked",
+    "node_modules",
+    "electron-widevinecdm",
+    "widevine",
+    `${process.platform}_${process.arch}`,
+    widevineCdmPluginFilename
+  );
+  const normalPath = path.join(
+    __dirname,
+    "..",
+    "widevine",
+    `${process.platform}_${process.arch}`,
+    widevineCdmPluginFilename
+  );
+  console.log(normalPath, asarUnpackedPath);
   if (fs.existsSync(asarUnpackedPath)) {
-    app.commandLine.appendSwitch('widevine-cdm-path', asarUnpackedPath);
+    console.log(1);
+    app.commandLine.appendSwitch("widevine-cdm-path", asarUnpackedPath);
   } else {
-    app.commandLine.appendSwitch('widevine-cdm-path', normalPath);
+    console.log(2);
+    app.commandLine.appendSwitch("widevine-cdm-path", normalPath);
   }
 
-  app.commandLine.appendSwitch('widevine-cdm-version', WIDEVINECDM_VERSION);
+  app.commandLine.appendSwitch("widevine-cdm-version", WIDEVINECDM_VERSION);
 };
 
 module.exports = {
   load
 };
+
 
 /***/ }),
 
@@ -170,32 +195,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var electron_widevinecdm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(electron_widevinecdm__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! path */ "path");
 /* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_2__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
 var mainWindow;
 var isDevelopment = "development" === "development";
-electron_widevinecdm__WEBPACK_IMPORTED_MODULE_1___default.a.load(electron__WEBPACK_IMPORTED_MODULE_0__["app"]);
-electron__WEBPACK_IMPORTED_MODULE_0__["app"].commandLine.appendSwitch("--allow-running-insecure-content");
-electron__WEBPACK_IMPORTED_MODULE_0__["app"].commandLine.appendSwitch("--ignore-certificate-errors");
+electron_widevinecdm__WEBPACK_IMPORTED_MODULE_1___default.a.load(electron__WEBPACK_IMPORTED_MODULE_0__["app"]); // app.commandLine.appendSwitch('widevvine-widevine-cdm-path', '/Applications/Google Chrome.app/Contents/Versions/73.0.3664.3/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_x64/libwidevinecdm.dylib');
+// app.commandLine.appendSwitch('widevine-cdm-version', '4.10.1224.7')
 
 function createWindow() {
-  var _webPreferences;
-
   mainWindow = new electron__WEBPACK_IMPORTED_MODULE_0__["BrowserWindow"]({
     width: 800,
     height: 600,
-    webPreferences: (_webPreferences = {
-      plugins: true,
-      nodeIntegration: false
-    }, _defineProperty(_webPreferences, "plugins", true), _defineProperty(_webPreferences, "webSecurity", false), _defineProperty(_webPreferences, "allowDisplayingInsecureContent", true), _defineProperty(_webPreferences, "allowRunningInsecureContent", true), _webPreferences)
+    webPreferences: {
+      nodeIntegration: false,
+      plugins: true
+    }
   }); // mainWindow.loadURL("http://localhost:8000/test/");
 
   mainWindow.loadURL("file://".concat(path__WEBPACK_IMPORTED_MODULE_2___default.a.resolve(__dirname, "./index.html")), {
     userAgent: "Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko"
-  });
+  }); // mainWindow.loadURL('https://bitmovin.com/demos/drm');
+  // mainWindow.loadURL(
+  //   "https://shaka-player-demo.appspot.com/demo/#asset=https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd;lang=zh-CN;build=uncompiled"
+  // );
 
   if (isDevelopment) {
     mainWindow.webContents.openDevTools();

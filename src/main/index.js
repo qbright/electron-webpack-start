@@ -5,19 +5,17 @@ let mainWindow;
 let isDevelopment = process.env.NODE_ENV === "development";
 
 widevine.load(app);
-app.commandLine.appendSwitch("--allow-running-insecure-content");
-app.commandLine.appendSwitch("--ignore-certificate-errors");
+
+// app.commandLine.appendSwitch('widevvine-widevine-cdm-path', '/Applications/Google Chrome.app/Contents/Versions/73.0.3664.3/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_x64/libwidevinecdm.dylib');
+// app.commandLine.appendSwitch('widevine-cdm-version', '4.10.1224.7')
+
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      plugins: true,
       nodeIntegration: false,
-      plugins: true,
-      webSecurity: false,
-      allowDisplayingInsecureContent: true,
-      allowRunningInsecureContent: true
+      plugins: true
     }
   });
 
@@ -26,6 +24,12 @@ function createWindow() {
   mainWindow.loadURL(`file://${path.resolve(__dirname, "./index.html")}`, {
     userAgent: "Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko"
   });
+
+  // mainWindow.loadURL('https://bitmovin.com/demos/drm');
+
+  // mainWindow.loadURL(
+  //   "https://shaka-player-demo.appspot.com/demo/#asset=https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd;lang=zh-CN;build=uncompiled"
+  // );
 
   if (isDevelopment) {
     mainWindow.webContents.openDevTools();
