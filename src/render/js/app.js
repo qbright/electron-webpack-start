@@ -1,28 +1,29 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { ThemeContext, themes } from "./theme-context";
-import ThemeButton from "./themed-button";
-
-function Toolbar(props) {
-  return <ThemeButton onClick={props.changeTheme}>Change Theme</ThemeButton>;
+class Columns extends React.Component {
+  render() {
+    return (
+      //<React.Fragment>
+      <>
+        <td>Hello</td>
+        <td>World</td>
+      </>
+    );
+  }
 }
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      theme: themes.light
-    };
-    this.toggleTheme = () => {
-      this.setState(state => ({
-        theme: state.theme === themes.dark ? themes.light : themes.dark
-      }));
-    };
-  }
-
   render() {
-    return 
+    return (
+      <table>
+        <tbody>
+          <tr>
+            <Columns />
+          </tr>
+        </tbody>
+      </table>
+    );
   }
 }
 

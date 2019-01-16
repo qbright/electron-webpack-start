@@ -23566,8 +23566,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _theme_context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./theme-context */ "./src/render/js/theme-context.js");
-/* harmony import */ var _themed_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./themed-button */ "./src/render/js/themed-button.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23589,44 +23587,44 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+var Columns =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Columns, _React$Component);
 
+  function Columns() {
+    _classCallCheck(this, Columns);
 
-function Toolbar(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_themed_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    onClick: props.changeTheme
-  }, "Change Theme");
-}
+    return _possibleConstructorReturn(this, _getPrototypeOf(Columns).apply(this, arguments));
+  }
+
+  _createClass(Columns, [{
+    key: "render",
+    value: function render() {
+      return (//<React.Fragment>
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Hello"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "World"))
+      );
+    }
+  }]);
+
+  return Columns;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 var App =
 /*#__PURE__*/
-function (_React$Component) {
-  _inherits(App, _React$Component);
+function (_React$Component2) {
+  _inherits(App, _React$Component2);
 
-  function App(props) {
-    var _this;
-
+  function App() {
     _classCallCheck(this, App);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
-    _this.state = {
-      theme: _theme_context__WEBPACK_IMPORTED_MODULE_2__["themes"].light
-    };
-
-    _this.toggleTheme = function () {
-      _this.setState(function (state) {
-        return {
-          theme: state.theme === _theme_context__WEBPACK_IMPORTED_MODULE_2__["themes"].dark ? _theme_context__WEBPACK_IMPORTED_MODULE_2__["themes"].light : _theme_context__WEBPACK_IMPORTED_MODULE_2__["themes"].dark
-        };
-      });
-    };
-
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(App).apply(this, arguments));
   }
 
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Columns, null))));
     }
   }]);
 
@@ -23634,96 +23632,6 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById("app"));
-
-/***/ }),
-
-/***/ "./src/render/js/theme-context.js":
-/*!****************************************!*\
-  !*** ./src/render/js/theme-context.js ***!
-  \****************************************/
-/*! exports provided: themes, ThemeContext */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "themes", function() { return themes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ThemeContext", function() { return ThemeContext; });
-var themes = {
-  light: {
-    foreground: "#000000",
-    background: "#eeeeee"
-  },
-  dark: {
-    foreground: "#ffffff",
-    background: "#222222"
-  }
-};
-var ThemeContext = React.createContext(themes.dark // default value
-);
-
-/***/ }),
-
-/***/ "./src/render/js/themed-button.js":
-/*!****************************************!*\
-  !*** ./src/render/js/themed-button.js ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _theme_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./theme-context */ "./src/render/js/theme-context.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-var ThemeButton =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(ThemeButton, _React$Component);
-
-  function ThemeButton(props) {
-    _classCallCheck(this, ThemeButton);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(ThemeButton).call(this, props));
-  }
-
-  _createClass(ThemeButton, [{
-    key: "render",
-    value: function render() {
-      var props = this.props;
-      var theme = this.context;
-      return React.createElement("button", _extends({}, props, {
-        style: {
-          backgroundColor: theme.background
-        }
-      }));
-    }
-  }]);
-
-  return ThemeButton;
-}(React.Component);
-
-ThemeButton.contextType = _theme_context__WEBPACK_IMPORTED_MODULE_0__["ThemeContext"];
-/* harmony default export */ __webpack_exports__["default"] = (ThemeButton);
 
 /***/ })
 
