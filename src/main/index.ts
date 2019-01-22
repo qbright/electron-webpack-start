@@ -1,7 +1,10 @@
 import { app, BrowserWindow } from "electron";
-import path from "path";
+
+import * as path from "path";
+
 let mainWindow;
 let isDevelopment = process.env.NODE_ENV === "development";
+
 function createWindow() {
   mainWindow = new BrowserWindow({ width: 800, height: 600 });
 
@@ -13,9 +16,7 @@ function createWindow() {
     mainWindow = null;
   });
 }
-
 app.on("ready", createWindow);
-
 
 //使用child_process fork 子进程进行调试, 用process.send 和 nodejs 进程进行通信，达到重载页面的目的
 
@@ -27,3 +28,4 @@ if (isDevelopment) {
     }
   });
 }
+

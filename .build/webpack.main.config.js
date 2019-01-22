@@ -13,7 +13,7 @@ module.exports = env => {
     },
     // externals: ["electron", "webpack"],
     entry: {
-      main: path.resolve(MAIN_PATH, "./index.js")
+      main: path.resolve(MAIN_PATH, "./index.ts")
     },
     output: {
       path: path.resolve(__dirname, "../dist"),
@@ -22,13 +22,15 @@ module.exports = env => {
     module: {
       rules: [
         {
-          test: /\.js$/,
-          exclude: [/node_modules/],
-          loader: "babel-loader"
+          test: /\.tsx?$/,
+          use: "ts-loader",
+          exclude: [/node_modules/]
         }
       ]
     },
-    devtool:'source-map'
+    resolve: {
+      extensions: [".tsx", ".ts", ".js"]
+    },
+    devtool: "source-map"
   };
 };
-
