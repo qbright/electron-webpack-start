@@ -90,10 +90,62 @@
 /*!***************************!*\
   !*** ./src/main/index.ts ***!
   \***************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var electron__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! electron */ "electron");
+/* harmony import */ var electron__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(electron__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! path */ "path");
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_1__);
+
+
+let mainWindow;
+let isDevelopment = "development" === "development";
+function createWindow() {
+    mainWindow = new electron__WEBPACK_IMPORTED_MODULE_0__["BrowserWindow"]({ width: 800, height: 600 });
+    mainWindow.loadFile(path__WEBPACK_IMPORTED_MODULE_1__["resolve"](__dirname, "./index.html"));
+    if (isDevelopment) {
+        mainWindow.webContents.openDevTools();
+    }
+    mainWindow.on("closed", function () {
+        mainWindow = null;
+    });
+}
+electron__WEBPACK_IMPORTED_MODULE_0__["app"].on("ready", createWindow);
+//使用child_process fork 子进程进行调试, 用process.send 和 nodejs 进程进行通信，达到重载页面的目的
+// don't delete
+if (isDevelopment) {
+    process.on("message", msg => {
+        if (msg === "RELOAD") {
+            mainWindow && mainWindow.reload();
+        }
+    });
+}
+
+
+/***/ }),
+
+/***/ "electron":
+/*!***************************!*\
+  !*** external "electron" ***!
+  \***************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/ts-loader/index.js):\nError: \u001b[31merror while parsing tsconfig.json\u001b[39m\n    at Object.loader (/Users/zhengqiguang/Work/other/electron-webpack-start/node_modules/ts-loader/dist/index.js:19:18)");
+module.exports = require("electron");
+
+/***/ }),
+
+/***/ "path":
+/*!***********************!*\
+  !*** external "path" ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
 
 /***/ })
 
