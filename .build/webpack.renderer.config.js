@@ -8,7 +8,7 @@ module.exports = env => {
     mode: env.NODE_ENV,
     target: "electron-renderer",
     entry: {
-      render: path.resolve(RENDER_PATH, "./js/app.js")
+      render: path.resolve(RENDER_PATH, "./js/app.ts")
     },
     output: {
       path: DIST_PATH,
@@ -17,11 +17,14 @@ module.exports = env => {
     module: {
       rules: [
         {
-          test: /\.js$/,
-          exclude: [/node_modules/],
-          loader: "babel-loader"
+          test: /\.tsx?$/,
+          use: "ts-loader",
+          exclude: [/node_modules/]
         }
       ]
+    },
+    resolve: {
+      extensions: [".tsx", ".ts", ".js"]
     },
     plugins: [
       new HtmlWebpackPlugin({

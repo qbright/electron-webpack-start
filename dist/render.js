@@ -81,19 +81,23 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/render/js/app.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/render/js/app.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/render/js/app.js":
+/***/ "./src/render/js/app.ts":
 /*!******************************!*\
-  !*** ./src/render/js/app.js ***!
+  !*** ./src/render/js/app.ts ***!
   \******************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-console.log('hello123123');
+"use strict";
+
+let a = "hello";
+console.log(a);
+
 
 /***/ })
 
