@@ -96,7 +96,10 @@
 "use strict";
 
 let a = "hello";
-console.log(a);
+let body = document.getElementsByTagName("body")[0];
+let helloEl = document.createElement("div");
+helloEl.innerHTML = a;
+body.appendChild(helloEl);
 
 
 /***/ })
