@@ -1,9 +1,11 @@
 # electron-webpack-start
 
-*   with react  [electron-webpack-react-start](https://github.com/qbright/electron-webpack-start/tree/electron-webpack-react-start)
+- with typescript [electron-webpack-typescript](https://github.com/qbright/electron-webpack-start/tree/electron-webpack-typescript)
 
 ## Quick Start
+
 Get started fast with [electron-webpack-start](https://github.com/qbright/electron-webpack-start).
+
 ```bash
 # create a directory of your choice, and copy template using curl
 mkdir my-project && cd my-project
@@ -26,5 +28,3 @@ npm run build
 # pack to the application
 npm run pack
 ```
-
-
